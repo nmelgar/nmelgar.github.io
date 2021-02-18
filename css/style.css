@@ -20,7 +20,6 @@ body{
     font-family: 'Abel', sans-serif; /*Sans-serif, the fallback font in case Abel doesn't work*/
     font-size: 1.5em;
     color: #000;
-    overflow-x: hidden;
 }
 
 h2{
