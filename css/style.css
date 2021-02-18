@@ -12,7 +12,7 @@ ____________________________________________ */
 ____________________________________________ */
 .main{ padding-top: 3%; }
 .row { padding: 2% 0; } /*top-bottom = 2% | right-left = 0*/
-.green{ background-color: #000000; }
+.green{ background-color: #000; }
 
 /* Typography
 ____________________________________________ */
@@ -20,6 +20,7 @@ body{
     font-family: 'Abel', sans-serif; /*Sans-serif, the fallback font in case Abel doesn't work*/
     font-size: 1.5em;
     color: #000;
+    overflow-x:hidden;
 }
 
 h2{
@@ -28,7 +29,7 @@ h2{
     margin: 0.67em;
 }
 
-h2.bio{ color: #fff; }
+h2.bio{ color: #3f7f7c; text-align: left;}
 p.bio{ color: #fff; }
 
 /* Header & Navigation
@@ -52,15 +53,15 @@ header.main_nav{
 }
 .logo a:hover{
     background-color: #fff;
-    color: #000;
+    color: #7accc8;
 }
 
 /* Images & Media
 ____________________________________________ */
 img{ max-width: 100%; } /*Max width of the image is 100% of the container that is in*/
 img.avatar{
-    border-radius: 50px;
-    border: 5px solid darkgrey;
+    border-radius: 400px;
+    border: 5px solid #fff;
 }
 img:hover{ opacity: 0.8; }/*Give an effect to the image every time mouse move over*/
 
@@ -105,9 +106,8 @@ ____________________________________________ */
     .main {padding-top: 15%;}
     .portfolio img{ margin-bottom: 10%;}
     img.avatar{ margin-top: 15%;}
-    h2.bio{font-size: 2.5em;}
-    p.bio{ font-size: 1.25em; color: #fff;}
+    h2.bio{font-size: 2.5em; text-align: center;}
+    p.bio{ font-size: 1.25em; color: #fff; text-align: center;}
     ul.social li a{font-size: 1em;}
-    
     
 }
