@@ -1,0 +1,94 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* Dark gray text */
+    background-color: #fff; /* White background */
+  }
+  
+  header {
+    background-color: #333; /* Dark gray header */
+    color: #fff; /* White text on header */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav a {
+    color: #fff; /* White links */
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 15px;
+  }
+  
+  section {
+    padding: 30px;
+  }
+  
+  .hero {
+    text-align: center;
+  }
+  
+  .hero img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* Ensure image covers full width */
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .about img {
+    width: 100%;
+    border-radius: 5px; /* Optional rounded corners */
+  }
+  
+  .projects .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for projects */
+    gap: 20px;
+  }
+  
+  .project-card {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    /* Additional styles for smaller screens */
+    .hero-content {
+      top: 30%;
+    }
+  }

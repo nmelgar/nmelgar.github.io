@@ -2,251 +2,65 @@
 <html lang="en">
 
 <head>
-
-    <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta charset="utf-8">
-    <title>Nefi Melgar</title>
-    <meta name="description" content="Nefi Melgar. Portfolio. Graphic Design. Illustrations. ">
-    <meta name="author" content="Nefi Melgar">
-
-    <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-
-    <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-    <!--Scripts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!--Not sure why it didn't work with other jquery versions-->
-
-    <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <!--Fontawesome cheatsheet https://fontawesome.com/cheatsheet-->
-    <!--FontAwesome goes below-->
-    <script src="https://kit.fontawesome.com/3707558351.js" crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Minimalist Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!--NAVBAR STARTS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Nefi Melgar</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Graphic Design <span
-                                    class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Web Development(IN Progress)</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a target="_blank"
-                                        href="https://www.youtube.com/channel/UC41UEjgHk1wPoBccl1JlKhA">My Youtube</a>
-                                </li>
-                                <li><a target="_blank" href="https://www.instagram.com/nefimelgar/">My Instagram</a>
-                                </li>
-                                <li><a target="_blank" href="https://github.com/nmelgar">My Github</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a target="_blank" href="https://www.churchofjesuschrist.org/?lang=eng">My
-                                        Beliefs</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- navbar-collapse
-                    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-            </div>
-            <!-- container-fluid 
-                –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <header>
+        <h1>My Site</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
         </nav>
-    </div>
-    <!--NAVBAR ENDS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    </header>
 
+    <section class="hero">
+        <img src="hero-image.jpg" alt="Hero image">
+        <div class="hero-content">
+            <h2>Welcome to my world</h2>
+            <p>A brief introduction to your website or yourself.</p>
+            <a href="#" class="button">Learn More</a>
+        </div>
+    </section>
 
-    <div class="container main">
-        <!--First row to hold images-->
-        <div class="row" style="margin-top: -5%;">
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/batman.jpg"><img alt="Image of Batman"
-                        src="images/batman.jpg" /></a>
+    <section class="about">
+        <h2>About Me</h2>
+        <p>Write a bit about yourself or your business.</p>
+        <img src="about-image.jpg" alt="About image">
+    </section>
 
-            </div>
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/flounder.jpg"><img alt="Image of flounder form the little mermaid"
-                        src="images/flounder.jpg" /></a>
-
-            </div>
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/kirby.jpg"><img alt="Image of videogames character Kirby"
-                        src="images/kirby.jpg" /></a>
-
+    <section class="projects">
+        <h2>My Work</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="project1-image.jpg" alt="Project 1 image">
+                <h3>Project 1 Title</h3>
+                <p>Short description of the project.</p>
+                <a href="#">View Project</a>
             </div>
         </div>
-        <!--Second row to hold images
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <div class="row">
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/tiger.jpg"><img alt="Draw of a tiger" src="images/tiger.jpg" /></a>
+    </section>
 
-            </div>
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/bumble2.jpg"><img alt="Image of Bumblebee from transformers"
-                        src="images/bumble2.jpg" /></a>
-
-            </div>
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/heart.jpg"><img alt="Image of a heart"
-                        src="images/heart.jpg" /></a>
-
-            </div>
-
-
-        </div>
-        <!--Third row to hold images
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-        <div class="row" style="margin-bottom: 0.5em;">
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/lemons.jpg"><img alt="Image of lemons app"
-                        src="images/lemons.jpg" /></a>
-
-            </div>
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/typo.jpg"><img alt="Image of different letters"
-                        src="images/typo.jpg" /></a>
-
-            </div>
-            <div class="four columns portfolio">
-                <a class="image-link" href="images/Wolverine.jpg"><img alt="Image of Wolverine from Marvel"
-                        src="images/Wolverine.jpg" /></a>
-
-            </div>
-
-        </div>
-
-
-    </div>
-    <!--Here ends the container
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <!--Down section
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="row green">
-        <div class="container">
-            <div class="four columns">
-                <img class="avatar" alt="Image of Nefi Melgar" src="images/behance.JPG" />
-            </div>
-            <div class="eight columns">
-                <h2 class="bio">About Me</h2>
-                <p class="bio">Diligent worker in the tasks assigned to me and with the goals I have set to my personal
-                    life, education, and work.
-                    I enjoy playing piano, singing, making sports, riding my bike, playing with my pets and having a
-                    good time with my family.
-                </p>
-
-            </div>
-        </div>
-    </div>
-
-    <!--Row below
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <section class="contact">
+        <h2>Get in Touch</h2>
+        <form action="contact.php" method="post">
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
     <footer>
-        <div class="container">
-            <div class="row twelve columns">
-                <ul class="social">
-                    <li class="facebook"><a href="https://www.facebook.com/nefimelgaroficial/" target="_blank"><i
-                                class="fab fa-facebook-square"></i></a></li>
-                    <li class="github"><a target="_blank" href="https://github.com/nmelgar"><i
-                                class="fab fa-github"></i></a></li>
-                    <li class="instagram"><a target="_blank" href="https://www.instagram.com/nefimelgar/"><i
-                                class="fab fa-instagram"></i></a></li>
-                    <!--            <li class="flickr"><a href="#"><i class="fab fa-flickr"></i></a></li>-->
-                    <li class="youtube"><a target="_blank"
-                            href="https://www.youtube.com/channel/UC41UEjgHk1wPoBccl1JlKhA"><i
-                                class="fab fa-youtube"></i></a></li>
-                    <!--            <li class="linkedin"><a href="#"><i class="fab fa-linkedin"></i></a></li>-->
-                </ul>
-
-            </div>
-            <div class="row twelve columns">
-                <p class="copyright">&copy; 2021 Nefi Melgar. All rights Reserved</p>
-            </div>
-        </div>
+        &copy; 2024 My Website | All Rights Reserved
     </footer>
 
-
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src="scripts/jquery.magnific-popup.js"></script>
-    <script>
-        // Initialize popup as usual
-        $('.image-link').magnificPopup({
-            type: 'image',
-            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
-
-            zoom: {
-                enabled: true, // By default it's false, so don't forget to enable it
-
-                duration: 300, // duration of the effect, in milliseconds
-                easing: 'ease-in-out', // CSS transition easing function
-
-                // The "opener" function should return the element from which popup will be zoomed in
-                // and to which popup will be scaled down
-                // By defailt it looks for an image tag:
-                opener: function (openerElement) {
-                    // openerElement is the element on which popup was initialized, in this case its <a> tag
-                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-                    return openerElement.is('img') ? openerElement : openerElement.find('img');
-                }
-            }
-
-        });
-
-    </script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-        crossorigin="anonymous"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-        crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
