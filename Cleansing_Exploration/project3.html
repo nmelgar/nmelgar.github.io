@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[STUDENT NAME]">
+<meta name="author" content="Nefi Melgar">
 
-<title>Nefi Melgar - Data Science Portfolio - Client Report - [Insert Project Title]</title>
+<title>Nefi Melgar - Data Science Portfolio - Client Report - Finding relationships in baseball</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4685,7 +4719,7 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Client Report - [Insert Project Title]</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Client Report - Finding relationships in baseball</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> See code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
             <p class="subtitle lead">Course DS 250</p>
                       </div>
   </div>
@@ -4696,7 +4730,7 @@ vertical-align: -.125em;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>[STUDENT NAME] </p>
+               <p>Nefi Melgar </p>
             </div>
     </div>
       
@@ -4720,11 +4754,113 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#paste-in-a-template" id="toc-paste-in-a-template">Paste in a template</a></li>
+  <li><a href="#elevator-pitch" id="toc-elevator-pitch">Elevator pitch</a></li>
+  <li><a href="#question-1" id="toc-question-1">QUESTION 1</a></li>
+  <li><a href="#question-2" id="toc-question-2">QUESTION 2</a></li>
+  <li><a href="#question-3" id="toc-question-3">QUESTION 3</a></li>
   </ul>
 </nav>
-<section id="paste-in-a-template" class="level3">
-<h3 class="anchored" data-anchor-id="paste-in-a-template">Paste in a template</h3>
+<section id="elevator-pitch" class="level2">
+<h2 class="anchored" data-anchor-id="elevator-pitch">Elevator pitch</h2>
+<p><em>When you hear the word “relationship” what is the first thing that comes to mind? Probably not baseball. But a relationship is simply a way to describe how two or more objects are connected. There are many relationships in baseball such as those between teams and managers, players and salaries, even stadiums and concession prices. Let’s analyze other relationships in baseball.</em></p>
+<div id="project-data" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Read and format project data</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sqlite_file <span class="op">=</span> <span class="st">&quot;lahmansbaseballdb.sqlite&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> sqlite3.<span class="ex">connect</span>(sqlite_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">QUESTION 1</h2>
+<p><strong>HAS ANY PROFESSIONAL BASEBALL PLAYER ATTENDED TO BYU?</strong></p>
+<p><em>In the following table we can see those professional players who attended BYU-I, their salary, the year they played for a professional team and the team’s id.</em></p>
+<p><em>Does a 4000000 salary look bad? I don’t think so.</em></p>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">QUESTION 2</h2>
+<p><strong>WHAT PLAYERS HAVE GOTTEN THE HIGHEST BATTING AVERAGE OVER THEIR ENTIRE CAREERS?</strong></p>
+<p><em>The batting average is the number of hits divided by the number of at-bats of the player. If a player has a high number of at-bats it doesn’t mean he will have a high number of hits, they will vary from player to player, let’s analyz more of this.</em></p>
+<div id="q2" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code to batting average w/at least 1 at-bat</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include code here</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># hits = &quot;&quot;&quot;SELECT h, ab, playerid, yearid FROM batting WHERE ab &gt;= 1&quot;&quot;&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># hits_total = pd.read_sql_query(hits, db)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># hits_total[&quot;batting_avg&quot;] = hits_total[&quot;H&quot;] / hits_total[&quot;AB&quot;]</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ab1_filtered = hits_total[[&quot;playerID&quot;, &quot;yearID&quot;, &quot;batting_avg&quot;]]</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ab1_filtered = ab1_filtered.sort_values(</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     by=[&quot;batting_avg&quot;, &quot;playerID&quot;], ascending=[False, True]</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ab1_filtered.head(5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><em>It seems the amount of players with a batting average of 1 is high.</em></p>
+<div id="q3" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code to batting average w/at least 10 at-bat</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include code here</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># hits = &quot;&quot;&quot;SELECT h, ab, playerid, yearid FROM batting WHERE ab &gt;= 10&quot;&quot;&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># hits_total = pd.read_sql_query(hits, db)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># hits_total[&quot;batting_avg&quot;] = hits_total[&quot;H&quot;] / hits_total[&quot;AB&quot;]</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ab10_filtered = hits_total[[&quot;playerID&quot;, &quot;yearID&quot;, &quot;batting_avg&quot;]]</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ab10_filtered = ab10_filtered.sort_values(</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     by=[&quot;batting_avg&quot;, &quot;playerID&quot;], ascending=[False, True]</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ab10_filtered.head(5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><em>Batting average has decreased as the at bats increased.</em></p>
+<div id="q4" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code to batting average w/at least 100 at-bat</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include code here</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># hits = &quot;&quot;&quot;SELECT h, ab, playerid, yearid FROM batting WHERE ab &gt;= 100&quot;&quot;&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># hits_total = pd.read_sql_query(hits, db)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># hits_total[&quot;batting_avg&quot;] = hits_total[&quot;H&quot;] / hits_total[&quot;AB&quot;]</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ab100_filtered = hits_total[[&quot;playerID&quot;, &quot;batting_avg&quot;]]</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ab100_filtered = ab100_filtered.groupby(&quot;playerID&quot;).mean()</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ab100_filtered = ab100_filtered.sort_values(</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     by=[&quot;batting_avg&quot;, &quot;playerID&quot;], ascending=[False, True]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ab100_filtered.head(5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><em>Batting average seems to be low, but these players have more than 100 at-bats.</em></p>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">QUESTION 3</h2>
+<p><strong>IS THERE A BIG DIFFERENCE FOR HOME RUNS NUMBERS WHEN COMPARING BIG AND FAMOUS TEAMS?</strong></p>
+<p><em>There have been many baseball teams since this beautiful sport started, many of them still making history and adding numbers to their statistics, let’s compare 2 of these teams. We will pay special attention to the number of home runs. Team 1 will be Cincinnati Reds, and team 2 will be Pittsburgh Pirates.</em></p>
+<p><em>Both teams started registering home runs around the same years, before 1880, Pittsburgh started with a high amount of home runs compared to Cincinnati, but for some reason Cincinnati has a higher amount of home runs through the years, they have a clear advantage.</em></p>
+<div id="q5" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code to compare CIN vs PIT home runs</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select all teams</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># teams = &quot;&quot;&quot;SELECT * FROM teams&quot;&quot;&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># teams_total = pd.read_sql_query(teams, db)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># teams_total</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # select first team Cincinnati Reds</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># select_teams = &quot;&quot;&quot;SELECT * FROM teams WHERE name = &#39;Cincinnati Reds&#39; OR name = &#39;Pittsburgh Pirates&#39;&quot;&quot;&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># chosen_teams = pd.read_sql_query(select_teams, db)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># chosen_teams[&quot;Year&quot;] = pd.to_datetime(chosen_teams[&quot;yearID&quot;], format=&quot;%Y&quot;)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># chosen_teams</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># chart_1 = px.scatter(</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#     chosen_teams,</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     x=&quot;Year&quot;,</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#     y=&quot;HR&quot;,</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     color=&quot;name&quot;,</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#     color_discrete_sequence=[&quot;red&quot;, &quot;yellow&quot;],</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#     labels={&quot;HR&quot;: &quot;Home Runs&quot;, &quot;name&quot;: &quot;Team&quot;},</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#     title=&quot;Home Runs through the years&quot;,</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># chart_1.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><em>This table shows the home runs through the years for both teams.</em></p>
 
 
 </section>
