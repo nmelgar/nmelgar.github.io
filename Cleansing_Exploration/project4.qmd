@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - Can you predict that?"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Nefi Melgar"
 format:
   html:
     self-contained: true
@@ -25,4 +25,228 @@ execute:
     
 ---
 
-### Paste in a template
+```{python}
+# | label: libraries
+# | include: false
+import pandas as pd
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
+
+
+```
+
+
+## Elevator pitch
+
+_The clean air act of 1970 was the beginning of the end for the use of asbestos in home building. By 1976, the U.S. Environmental Protection Agency (EPA) was given authority to restrict the use of asbestos in paint. Homes built during and before this period are known to have materials with asbestos. You can [read more about this ban](https://www.asbestos.com/mesothelioma-lawyer/legislation/ban/)._
+
+_The state of Colorado has a large portion of their residential dwelling data that is missing the year built and they would like to build a predictive model that can classify if a house is built pre 1980._
+
+_Colorado provided home sales data for the city of Denver from 2013 on which to train the model. They said all the column names should be descriptive enough for the modeling and that they would like to use the latest machine learning methods._
+
+```{python}
+#| label: project data
+#| code-summary: Read and format project data
+data_url = "https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv"
+data_ml = pd.read_csv(data_url)
+```
+
+## QUESTION 1
+
+__EVALUATE POTENTIAL RELATIONSHIPS BETWEEN THE HOME VARIABLES AND BEFORE1980__
+
+_In the following charts we are going to analyze different features that can help the model to better classify if houses were built before or after 1980._
+
+```{python}
+# | label: Q1
+# | code-summary: Code mean of living area chart
+# mean of living area through the years
+after_1900 = data_ml.query("yrbuilt >= 1900")
+mean_area_per_year = after_1900.groupby("yrbuilt")["livearea"].mean().reset_index()
+mean_area_per_year_chart = px.line(
+    mean_area_per_year,
+    x="yrbuilt",
+    y="livearea",
+    labels={"yrbuilt": "Year Built", "livearea": "Live Area"},
+    title="Mean Living Area Through the Years",
+)
+mean_area_per_year_chart.add_vline(
+    x=1980,
+    line_width=1,
+    line_dash="dash",
+    line_color="red",
+    annotation_text="1980",
+)
+mean_area_per_year_chart.show()
+
+```
+_Did the living area changed through the years? Through the years the mean living area were increasing. During 1980 it decreased considerably, but it increased again the following years._
+
+```{python}
+# | label: Q2
+# | code-summary: Code mean of bedrooms chart 
+# mean of bedrooms through the years
+mean_bedrooms_per_year = after_1900.groupby("yrbuilt")["numbdrm"].mean().reset_index()
+bedrooms_year_chart = px.scatter(
+    mean_bedrooms_per_year,
+    x="yrbuilt",
+    y="numbdrm",
+    labels={"yrbuilt": "Year Built", "numbdrm": "Number of bedrooms"},
+    title="Mean of Bedrooms Through the Years",
+)
+bedrooms_year_chart.add_vline(
+    x=1980,
+    line_width=1,
+    line_dash="dash",
+    line_color="red",
+    annotation_text="1980",
+)
+bedrooms_year_chart.show()
+
+```
+_Did the number of bedrooms increased or decreased through the years? The mean of bedrooms was changing a lot through the years, it may not be the best criteria in this case. Because some years it increased and others decreased, not a clear pattern is shown._
+
+```{python}
+# | label: Q3
+# | code-summary: Code mean average price chart 
+# mean average price through the years
+xx_century = data_ml.query("yrbuilt >= 1900 and yrbuilt < 2000")
+price_per_year = xx_century.groupby("yrbuilt")["sprice"].mean().reset_index()
+price_per_year_chart = px.bar(
+    price_per_year,
+    x="yrbuilt",
+    y="sprice",
+    labels={"yrbuilt": "Year Built", "sprice": "Selling Price"},
+    title="Mean Average Selling Prices in the XX Century",
+)
+price_per_year_chart.add_vline(
+    x=1980,
+    line_width=1,
+    line_dash="dash",
+    line_color="red",
+    annotation_text="1980",
+)
+price_per_year_chart.show()
+
+```
+_Mean Average selling prices in the XX century decreased and maintained certain stability for many years, around 1984 prices increased and decreased again showing a considerable variance each year. 1980 may be the year with the lowest prices._
+
+## QUESTION 2
+
+__BUILD CLASSIFICATION MODEL LABELING HOUSES ACCORDING TO THE BUILT YEAR__
+
+_let's build a classification model labeling houses as being built “before 1980” or “during or after 1980”. The goal is to reach or exceed 90% accuracy._
+
+_Two clasffication models were built, a logistic regression and random forest. Both models shew high accuracy, indicating that the models are built correctly or that some adjustments need to be made to the collected data._
+
+_According to the results the Random Forest model achieved a higher accuracy (93%) compared to the Logistic Regression model (88%) for predicting whether a house was built before or after 1980._
+```{python}
+# | code-summary: Code to build ML models
+# drop column yrbuilt to avoid overfitting
+data_ml.drop(columns=["yrbuilt"], inplace=True)
+
+# define features (X) and target variable (y)
+X = data_ml.drop(
+    columns=[
+        "before1980",
+        "parcel",
+    ]
+)
+y = data_ml["before1980"]
+
+# split data, training and testing
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# standardize features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# train logistic regression model
+logreg_model = LogisticRegression(max_iter=1000)
+logreg_model.fit(X_train_scaled, y_train)
+
+# train random forest classifier model
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train_scaled, y_train)
+
+# model evaluation
+y_pred_logreg = logreg_model.predict(X_test_scaled)
+y_pred_rf = rf_model.predict(X_test_scaled)
+
+accuracy_logreg = accuracy_score(y_test, y_pred_logreg)
+accuracy_rf = accuracy_score(y_test, y_pred_rf)
+
+print(f"Logistic Regression Accuracy: {accuracy_logreg:.2f}")
+print(f"Random Forest Accuracy: {accuracy_rf:.2f}")
+
+# classification reports comparisson
+print("\nLogistic Regression Classification Report:")
+print(
+    classification_report(
+        y_test, y_pred_logreg, target_names=["After 1980", "Before 1980"]
+    )
+)
+
+print("\nRandom Forest Classification Report:")
+print(
+    classification_report(y_test, y_pred_rf, target_names=["After 1980", "Before 1980"])
+)
+```
+
+## QUESTION 3
+
+__JUSTIFY CLASSIFICATION MODELS__
+
+_Random Forest model is good at identifying true positives (houses built after 1980) - 91% of the time it predicts a house is built after. It also identifies true negatives correctly (houses built before 1980) - 94% of the time it predicts a house is built before 1980._
+
+_The model is also good at recalling both positives (houses built after 1980) with a 90% of accuracy and negatives (houses built before 1980) with a 95% of accuracy._
+
+_Living area (livearea column) seems to be the most important feature in the model, other important features are number of bathrooms, net price, selling price and square footage of the basement._
+
+```{python}
+# | label: Q4
+# | code-summary: Code feature importance
+# get feature importance from the random forest model
+feature_importance = rf_model.feature_importances_
+
+importance_df = pd.DataFrame({"Feature": X.columns, "Importance": feature_importance})
+importance_df = importance_df.sort_values(by="Importance", ascending=False)
+importance_df = importance_df.head(10)
+
+# create chart to display feature importance from model
+feature_importance_chart = px.bar(
+    importance_df,
+    x="Importance",
+    y="Feature",
+    title="Feature Importance from Random Forest Model",
+)
+
+feature_importance_chart.show()
+
+```
+_Feature importance in ascending order._
+
+## QUESTION 4
+
+__EVALUATION METRICS__
+
+_Let's review important evaluation metrics to consider when evaluating the quality of a classification mode, in this case the random forest model._
+
+_**Accuracy:** Measures the proportion of correctly classified instances. For Random Forest, it is 93%.High accuracy indicates the model performs well overall. The goal was to get at least 90% of accuracy, so had a higher accuracy than expected._
+
+_**Precision:** Indicates the proportion of true positive predictions among all positive predictions. For “Before 1980”, it is 0.94. High precision means fewer false positives._
+
+_**Recall:** Measures the proportion of true positive predictions among all actual positives. For “Before 1980”, it is 0.95. High recall means fewer false negatives._
+
+_**F1-Score:**  Harmonic mean of precision and recall, providing a balance between the two. For “Before 1980”, it is 0.94. A high F1-score indicates a good balance between precision and recall._
